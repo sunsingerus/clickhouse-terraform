@@ -61,6 +61,11 @@ resource "aws_instance" "my_server_1" {
   ami = "${var.ami_id}"
   instance_type = "${var.instance_type}"
   subnet_id = "${var.subnet_id}"
+  security_groups = ["${aws_security_group.my_security_group_1.id}"]
+
+  lifecycle {
+    create_before_destroy = true
+  }
 
   user_data = <<-EOF
               #!/bin/bash
@@ -71,57 +76,50 @@ resource "aws_instance" "my_server_1" {
   tags = {
     Name = "my-server-1"
   }
+}
 
+resource "aws_instance" "my_server_2" {
+  ami = "${var.ami_id}"
+  instance_type = "${var.instance_type}"
+  subnet_id = "${var.subnet_id}"
   security_groups = ["${aws_security_group.my_security_group_1.id}"]
 
   lifecycle {
     create_before_destroy = true
   }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World from server 2" > index.html
+              nohup busybox httpd -f -p "${var.server_port}" &
+              EOF
+
+  tags = {
+    Name = "my-server-2"
+  }
 }
 
-#resource "aws_instance" "my_server_2" {
-#  ami = "ami-43a15f3e"
-#  instance_type = "t1.micro"
-#  subnet_id = "${var.subnet_id}"
-#
-#  user_data = <<-EOF
-#              #!/bin/bash
-#              echo "Hello, World from server 2" > index.html
-#              nohup busybox httpd -f -p "${var.server_port}" &
-#              EOF
-#
-#  tags = {
-#    Name = "my-server-2"
-#  }
-#
-#  vpc_security_group_ids = ["${aws_security_group.my_security_group_1.id}"]
-#
-#  lifecycle {
-#    create_before_destroy = true
-#  }
-#}
-#
-#resource "aws_instance" "my_server_3" {
-#  ami = "ami-43a15f3e"
-#  instance_type = "t2.micro"
-#
-#  user_data = <<-EOF
-#              #!/bin/bash
-#              echo "Hello, World from server 3" > index.html
-#              nohup busybox httpd -f -p "${var.server_port}" &
-#              EOF
-#
-#  tags = {
-#    Name = "my-server-3"
-#  }
-#
-#  vpc_security_group_ids = ["${aws_security_group.my_security_group_1.id}"]
-#
-#  lifecycle {
-#    create_before_destroy = true
-#  }
-#}
-#
+resource "aws_instance" "my_server_3" {
+  ami = "${var.ami_id}"
+  instance_type = "${var.instance_type}"
+  subnet_id = "${var.subnet_id}"
+  security_groups = ["${aws_security_group.my_security_group_1.id}"]
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World from server 3" > index.html
+              nohup busybox httpd -f -p "${var.server_port}" &
+              EOF
+
+  tags = {
+    Name = "my-server-3"
+  }
+}
+
 #resource "aws_launch_configuration" "my_launch_configuration" {
 #  image_id = "ami-43a15f3e"
 #  instance_type = "t1.micro"
