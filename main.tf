@@ -27,6 +27,28 @@ resource "aws_security_group" "my_security_group_1" {
   }
 }
 
+resource "aws_instance" "my_server_multiple" {
+  ami = "${var.ami_id}"
+  instance_type = "${var.instance_type}"
+  subnet_id = "${var.subnet_id}"
+  security_groups = ["${aws_security_group.my_security_group_1.id}"]
+  count = 3
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+  user_data = <<-EOF
+              #!/bin/bash
+              echo "Hello, World from server ${count.index}" > index.html
+              nohup busybox httpd -f -p "${var.server_port}" &
+              EOF
+
+  tags = {
+    Name = "my-server-${count.index}"
+  }
+}
+
 #resource "aws_instance" "my_server_1" {
 #  ami = "${var.ami_id}"
 #  instance_type = "${var.instance_type}"
