@@ -15,3 +15,7 @@ output "elb_dns_name" {
   value = "${aws_elb.my_elb_1.dns_name}"
 }
 
+
+output "ip_my_server_multiple" {
+  value = ["${aws_instance.my_server_multiple.*.public_ip}"]
+}
