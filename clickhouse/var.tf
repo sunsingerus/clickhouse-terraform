@@ -10,21 +10,22 @@ variable "subnet_id" {
 }
 
 variable "ami_id" {
-  description = "Your AMI ID"
-  default = "ami-43a15f3e"
+  description = "ClickHouse node AMI ID"
+  default = "ami-fd433e82"
 }
 
 variable "instance_type" {
   description = "Your instance type"
-  default = "t2.micro"
-}
-
-variable "server_port" {
-  description = "The port the server will use for HTTP requests"
-  default = 8080
+  default = "t2.medium"
 }
 
 variable "ssh_port" {
   description = "The SSH port"
   default = 22
 }
+
+variable "ch_node_multiple_count" {
+  description = "Number of nodes to be launched"
+  default = 1
+}
+
