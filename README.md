@@ -43,3 +43,9 @@ In case all looks good - do Terraforming
 ../bin/terraform apply
 ```
 It may take some time.
+
+When you are done - destroy all created AWS resources with
+```bash
+../bin/terraform destroy
+```
+
