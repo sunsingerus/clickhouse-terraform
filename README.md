@@ -1,6 +1,11 @@
 # terraform-aws
 Terraform scripts for AWS cloud
 
+Provide Terraform with WS keys
+```bash
+export AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXX
+export AWS_SECRET_ACCESS_KEY=YYYYYYYYYYYYYYYYYYY
+```
 
 All operations has to be done inside `clickhouse` folder
 ```bash
