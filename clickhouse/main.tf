@@ -51,7 +51,7 @@ resource "aws_instance" "ch_node_multiple" {
   instance_type = "${var.instance_type}"
   subnet_id = "${var.subnet_id}"
   security_groups = ["${aws_security_group.ch_node_security_group.id}"]
-  key_name = "ubuntu_key_pair"
+  key_name = "${var.key_name}"
   count = "${var.ch_node_multiple_count}"
 
   lifecycle {

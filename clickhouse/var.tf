@@ -24,6 +24,11 @@ variable "ssh_port" {
   default = 22
 }
 
+variable "key_name" {
+  description = "Key pair name to get SSH access"
+  default = "ubunty_key_pair"
+}
+
 variable "ch_node_multiple_count" {
   description = "Number of nodes to be launched"
   default = 1
