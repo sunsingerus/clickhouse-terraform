@@ -15,7 +15,7 @@ cd clickhouse
 
 Now we are ready to start Terraforming.
 
-Setup veriables, located in `var.tf` file, such as:
+Setup variables, located in `var.tf` file, such as:
   * `vpc_id`
   * `subnet_id`
   * `instance_type`
