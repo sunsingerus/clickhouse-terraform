@@ -50,7 +50,9 @@ resource "aws_instance" "ch_node_multiple" {
   ami = "${var.ami_id}"
   instance_type = "${var.instance_type}"
   subnet_id = "${var.subnet_id}"
-  security_groups = ["${aws_security_group.ch_node_security_group.id}"]
+  vpc_security_group_ids = [
+    "${aws_security_group.ch_node_security_group.id}",
+  ]
   key_name = "${var.key_name}"
   count = "${var.ch_node_multiple_count}"
 
