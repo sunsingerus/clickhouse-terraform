@@ -2,7 +2,7 @@
 Terraform scripts for AWS cloud
 
 
-All operations has to be done insode `clickhouse` folder
+All operations has to be done inside `clickhouse` folder
 ```bash
 cd clickhouse
 ```
@@ -13,14 +13,15 @@ cd clickhouse
 ../bin/terraform init
 ```
 
-Now we are ready to start Terraforming
-Setup veriables such as:
-  * vpc_id
-  * subnet_id
-  * instance_type
-  * root_block_device_volume_size
-  * key_name
-  * ch_node_multiple_count
+Now we are ready to start Terraforming.
+
+Setup veriables, located in `var.tf` file, such as:
+  * `vpc_id`
+  * `subnet_id`
+  * `instance_type`
+  * `root_block_device_volume_size`
+  * `key_name`
+  * `ch_node_multiple_count`
 
 ```bash
 vim var.tf
@@ -36,4 +37,4 @@ In case all looks good - do Terraforming
 ```bash
 ../bin/terraform apply
 ```
-
+It may take some time.
