@@ -36,6 +36,6 @@ variable "key_name" {
 
 variable "ch_node_multiple_count" {
   description = "Number of nodes to be launched"
-  default = 1
+  default = 3
 }
 
