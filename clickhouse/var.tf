@@ -26,7 +26,7 @@ variable "ssh_port" {
 
 variable "key_name" {
   description = "Key pair name to get SSH access"
-  default = "ubunty_key_pair"
+  default = "ubuntu_key_pair"
 }
 
 variable "ch_node_multiple_count" {
