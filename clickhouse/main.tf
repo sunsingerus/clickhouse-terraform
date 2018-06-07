@@ -54,6 +54,12 @@ resource "aws_instance" "ch_node_multiple" {
   key_name = "${var.key_name}"
   count = "${var.ch_node_multiple_count}"
 
+  root_block_device {
+    volume_size = "${var.root_block_device_volume_size}"
+    volume_type = "gp2"
+    delete_on_termination = true
+  }
+
   lifecycle {
     create_before_destroy = true
   }

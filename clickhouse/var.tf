@@ -19,6 +19,11 @@ variable "instance_type" {
   default = "t2.medium"
 }
 
+variable "root_block_device_volume_size" {
+  description = "Size of the root volume in GB"
+  default = 120
+}
+
 variable "ssh_port" {
   description = "The SSH port"
   default = 22
