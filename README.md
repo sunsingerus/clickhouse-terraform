@@ -34,7 +34,7 @@ vim var.tf
 
 Take a look on what Terraform is going to do - review plan of the migration
 ```bash
-../bin/terrafrom plan
+../bin/terraform plan
 ```
 
 In case all looks good - do Terraforming
