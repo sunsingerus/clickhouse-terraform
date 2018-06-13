@@ -2,10 +2,8 @@ terraform {
   required_version = ">= 0.8, <= 0.12"
 }
 
-
 provider "aws" {
-  region = "us-east-1"
-#  region = "eu-west-1"
+  region = "${var.region}"
 }
 
 resource "aws_security_group" "ch_node_security_group" {

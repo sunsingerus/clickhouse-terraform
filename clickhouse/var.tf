@@ -1,3 +1,14 @@
+variable "region" {
+  description = "Amazon Region"
+  default = "us-east-1"
+  # eu-west-1
+  # etc
+}
+
+variable "availability_zone" {
+  description = "Amazon Availability Zone"
+  default = "us-east-1a"
+}
 
 variable "vpc_id" {
   description = "Your VPC ID"
