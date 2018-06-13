@@ -60,6 +60,13 @@ resource "aws_instance" "ch_node_multiple" {
     volume_size = "${var.root_block_device_volume_size}"
     volume_type = "gp2"
     delete_on_termination = true
+
+    # volume_type = 
+    #   gp2 for General Purpose SSD, 
+    #   io1 for Provisioned IOPS SSD, 
+    #   st1 for Throughput Optimized HDD, 
+    #   sc1 for Cold HDD, or 
+    #   standard for Magnetic
   }
 
   lifecycle {
