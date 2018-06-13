@@ -27,7 +27,7 @@ resource "aws_instance" "ch_node_2" {
   }
 
   tags = {
-    Name = "ch-node-${count.index}"
+    Name = "ch_node_2"
   }
 }
 
