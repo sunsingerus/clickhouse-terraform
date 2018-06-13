@@ -55,6 +55,7 @@ resource "aws_security_group" "ch_node_security_group" {
 resource "aws_ebs_volume" "ch_ebs_volume_1" {
   availability_zone = "${var.availability_zone}"
   size = 120
+  #snapshot_id = 
   encrypted = false
   type = "gp2"
   tags {
@@ -62,6 +63,11 @@ resource "aws_ebs_volume" "ch_ebs_volume_1" {
   }
 }
 
+resource "aws_volume_attachment" "ch_ebs_volume_att_1" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.ch_ebs_volume_1.id}"
+  instance_id = "${aws_instance.ch_node_1.id}"
+}
 
 resource "aws_instance" "ch_node_1" {
   ami = "${var.ami_id}"

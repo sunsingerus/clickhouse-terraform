@@ -32,7 +32,7 @@ variable "instance_type" {
 
 variable "root_block_device_volume_size" {
   description = "Size of the root volume in GB"
-  default = 120
+  default = 20
 }
 
 variable "ssh_port" {
